@@ -39,5 +39,5 @@ Before answering the problem I want to the thought process design I used, it is 
 ---
 
 ## S - Storage Schema
-
---- WORKING IN PROGRESS ---
+### **Important Tables**
+![Diagram of important tables to solve the problem](/assets/images/erd.png)
