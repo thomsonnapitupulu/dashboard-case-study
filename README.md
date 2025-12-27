@@ -769,15 +769,15 @@ snapshotFull := map[string]interface{}{
 ```
 
 **Pros:**
-- ✅ Blazing fast queries (no JOINs)
-- ✅ Perfect point-in-time accuracy
-- ✅ Simple query logic
+- Blazing fast queries (no JOINs)
+- Perfect point-in-time accuracy
+- Simple query logic
 
 **Cons:**
-- ❌ Massive storage overhead (50GB/year)
-- ❌ Can't fix data errors retroactively
-- ❌ Schema evolution difficult (adding new attributes)
-- ❌ Wasteful for rarely-used attributes
+- Massive storage overhead (50GB/year)
+- Can't fix data errors retroactively
+- Schema evolution difficult (adding new attributes)
+- Wasteful for rarely-used attributes
 
 **Temporal Tables Only:**
 ```go
@@ -793,15 +793,15 @@ type Response struct {
 ```
 
 **Pros:**
-- ✅ Minimal storage (2GB/year)
-- ✅ Can fix historical data bugs
-- ✅ Easy schema evolution
+- Minimal storage (2GB/year)
+- Can fix historical data bugs
+- Easy schema evolution
 
 **Cons:**
-- ❌ Slow queries (3-5 table JOINs)
-- ❌ Complex query logic
-- ❌ Difficult to optimize indexes
-- ❌ Risk of temporal join bugs
+- Slow queries (3-5 table JOINs)
+- Complex query logic
+- Difficult to optimize indexes
+- Risk of temporal join bugs
 
 **Hybrid Approach (Recommended):**
 ```go
@@ -817,14 +817,14 @@ type Response struct {
 ```
 
 **Pros:**
-- ✅ Fast for 80% of queries (no JOIN)
-- ✅ Flexible for complex queries (JOIN when needed)
-- ✅ Reasonable storage (20GB/year)
-- ✅ Balance between performance and flexibility
+- Fast for 80% of queries (no JOIN)
+- Flexible for complex queries (JOIN when needed)
+- Reasonable storage (20GB/year)
+- Balance between performance and flexibility
 
 **Cons:**
-- ⚠️ Need to choose core attributes carefully
-- ⚠️ Moderate complexity
+- Need to choose core attributes carefully
+- Moderate complexity
 
 #### How would you scale this across millions of records?
 
@@ -1009,10 +1009,10 @@ type EmployeeChangeEvent struct {
 ```
 
 **Assumptions:**
-- ✅ Employee IDs are stable (never change)
-- ✅ Employee data is eventually consistent (max 5 min lag)
-- ✅ Change events are published for all attribute updates
-- ✅ Historical data is retained for at least 7 years (compliance)
+- Employee IDs are stable (never change)
+- Employee data is eventually consistent (max 5 min lag)
+- Change events are published for all attribute updates
+- Historical data is retained for at least 7 years (compliance)
 
 **SLA Expected:**
 - API availability: 99.9%
@@ -1045,10 +1045,10 @@ type RestructureEvent struct {
 ```
 
 **Assumptions:**
-- ✅ 24-hour advance notice for org restructures
-- ✅ Org changes are effective at 00:00 UTC on specified date
-- ✅ Unit IDs for renamed units remain the same
-- ✅ Dissolved units are marked inactive, not deleted
+- 24-hour advance notice for org restructures
+- Org changes are effective at 00:00 UTC on specified date
+- Unit IDs for renamed units remain the same
+- Dissolved units are marked inactive, not deleted
 
 **3. Survey Team**
 
@@ -1074,10 +1074,10 @@ type ResponseEvent struct {
 ```
 
 **Assumptions:**
-- ✅ Response submission timestamp is authoritative (database server time)
-- ✅ Response IDs are unique and immutable
-- ✅ Responses cannot be edited after submission
-- ✅ Survey configuration defines which attributes to snapshot
+- Response submission timestamp is authoritative (database server time)
+- Response IDs are unique and immutable
+- Responses cannot be edited after submission
+- Survey configuration defines which attributes to snapshot
 
 **4. Platform/Infrastructure Team**
 
@@ -1098,10 +1098,10 @@ type PlatformContract interface {
 ```
 
 **Assumptions:**
-- ✅ Database server time is single source of truth (UTC)
-- ✅ All services use NTP for time sync (max 1s skew)
-- ✅ Tenant data is logically isolated (row-level security)
-- ✅ Database backups: daily + point-in-time recovery (7 days)
+- Database server time is single source of truth (UTC)
+- All services use NTP for time sync (max 1s skew)
+- Tenant data is logically isolated (row-level security)
+- Database backups: daily + point-in-time recovery (7 days)
 
 **5. API Gateway/Security Team**
 
@@ -1121,10 +1121,10 @@ type SecurityContract interface {
 ```
 
 **Assumptions:**
-- ✅ JWT tokens include tenant_id claim
-- ✅ Rate limiting: 100 req/s per tenant
-- ✅ All data access is logged for compliance
-- ✅ GDPR/data retention policies enforced
+- JWT tokens include tenant_id claim
+- Rate limiting: 100 req/s per tenant
+- All data access is logged for compliance
+- GDPR/data retention policies enforced
 
 **Inter-Team Communication:**
 
