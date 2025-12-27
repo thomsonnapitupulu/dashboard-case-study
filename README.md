@@ -1,6 +1,10 @@
 # Solution to EngageRocket Dashboard Snapshot Problem
 
 Author: Thomson (thomson.p.napitupulu@gmail.com)
+
+Disclaimer:
+I use Claude Code to assist me in generating the code but I can guarantee that I understand every line of codes in this project and I have make sure that this is a working PoC. I can explain more in depth about the PoC in the next On-Call interview. I hope you can understand, thank you.
+
 ## Thought Process Design
 ---
 Before answering the problem I want to the thought process design I used, it is RESHADED framework (https://www.educative.io/courses/grokking-the-system-design-interview/the-reshaded-approach-for-system-design). This is the framework I usually used for solving any technical system design problem. I might tailor the framework based on the problem needs.
